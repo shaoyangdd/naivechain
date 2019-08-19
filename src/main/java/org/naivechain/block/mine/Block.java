@@ -1,14 +1,43 @@
-package org.naivechain.block;
+package org.naivechain.block.mine;
 
 /**
- * Created by sunysen on 2017/7/6.
+ * 区块数据结构
+ *
+ * @author kangshaofei
+ * @date 2019-08-18
  */
 public class Block {
-    private int    index;
+
+    /**
+     * 区块索引
+     */
+    private int index;
+
+    /**
+     * 上一区块hash
+     */
     private String previousHash;
-    private long   timestamp;
+
+    /**
+     * 时间戳
+     */
+    private long timestamp;
+
+    /**
+     * 交易数据
+     */
     private String data;
+
+    /**
+     * 本区块hash
+     */
     private String hash;
+
+    /**
+     * 随机数 挖矿时需要计算出此随机数来
+     */
+    private int randomNumber;
+
 
     public Block() {
     }
@@ -59,6 +88,26 @@ public class Block {
 
     public void setHash(String hash) {
         this.hash = hash;
+    }
+
+    public int getRandomNumber() {
+        return randomNumber;
+    }
+
+    public void setRandomNumber(int randomNumber) {
+        this.randomNumber = randomNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Block{" +
+                "index=" + index +
+                ", previousHash='" + previousHash + '\'' +
+                ", timestamp=" + timestamp +
+                ", data='" + data + '\'' +
+                ", hash='" + hash + '\'' +
+                ", randomNumber=" + randomNumber +
+                '}';
     }
 }
 
